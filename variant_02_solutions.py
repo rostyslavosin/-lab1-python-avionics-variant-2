@@ -5,6 +5,9 @@
 """
 
 # Задача 1: Перемикання режимів автопілота (вкладений if)
+from math import sqrt
+
+
 def get_autopilot_mode(h: float, v: float) -> str:
     """
     Залежно від висоти h (м) та швидкості v (км/год):
@@ -25,7 +28,7 @@ def get_autopilot_mode(h: float, v: float) -> str:
 # Задача 2: Декодер команд ступенів (match-case)
 def decode_stage_command(stage_data: tuple) -> str:
     """
-    Приймає кортеж (stage_id, fuel_level, speed).
+    Прийає кортеж (stage_id, fuel_level, speed).
     Зіставляє шаблони:
     - stage_id == 1, fuel == 0 -> "Відстиковка 1-го ступеня"
     - stage_id 2 або 3 (через |), fuel == 0 -> "Відстиковка {stage_id}-го ступеня"
@@ -64,4 +67,10 @@ def count_overload_moments(ax: list, ay: list, az: list) -> int:
     За допомогою zip обчислює a = sqrt(ax^2 + ay^2 + az^2).
     Повертає кількість моментів, коли a > 5g (де g = 9.81 м/с^2).
     """
-    ...
+    g = 9.81
+    kilkist = 0 
+    for x, y, z in zip(ax, ay, az):  #перебираємо 3 списки
+        a = sqrt(x**2 + y**2 + z**2)  #Обчислюємо прискорення за формулою
+        if a > 5 * g:                  #Перевірка, якщо прискорення більше ніж 5g, то збільшуємо лічильник
+            kilkist += 1
+    return kilkist                   #Повертаємо кількість моментів, коли прискорення більше ніж 5g
