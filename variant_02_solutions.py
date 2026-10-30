@@ -72,3 +72,25 @@ def count_overload_moments(ax: list, ay: list, az: list) -> int:
         if a > 5 * g:                  #Перевірка, якщо прискорення більше ніж 5g, то збільшуємо лічильник
             kilkist += 1
     return kilkist        
+
+def main():
+    # Задача 1
+    print(get_autopilot_mode(12000, 850))  # Круїз
+    print(get_autopilot_mode(400, 200))    # Захід на посадку
+    print(get_autopilot_mode(6000, 500))   # Ручне управління
+
+    # Задача 2
+    print(decode_stage_command((1, 0, 100)))      # Відстиковка 1-го ступеня
+    print(decode_stage_command((2, 0, 150)))      # Відстиковка 2-го ступеня
+    print(decode_stage_command((3, 0, 200)))      # Відстиковка 3-го ступеня
+    print(decode_stage_command((4, 50, 300)))     # Ступінь 4: паливо 50%, швидкість 300 м/с
+
+    # Задача 3
+    temps = [20, -300, 25, 3600, -10]
+    print(calc_average_temp(temps))               # Середня температура
+
+    # Задача 4
+    ax = [0, 10, 20]
+    ay = [0, 10, 20]
+    az = [0, 10, 20]
+    print(count_overload_moments(ax, ay, az))     # Кількість моментів перевантаження
