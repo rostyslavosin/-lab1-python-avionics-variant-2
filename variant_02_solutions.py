@@ -91,6 +91,9 @@ def main():
 
     # Задача 4
     ax = [0, 10, 20]
-    ay = [0, 10, 20]
-    az = [0, 10, 20]
+    ay = [0, 90, 50]
+    az = [7, 10, 20]
     print(count_overload_moments(ax, ay, az))     # Кількість моментів перевантаження
+
+if __name__ == "__main__":
+    main()
